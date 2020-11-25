@@ -1,0 +1,5 @@
+note over browser: rerenders the note list on the page
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: {"message":"note created"}
+
