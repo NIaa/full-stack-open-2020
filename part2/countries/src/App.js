@@ -1,33 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios' 
-
-const Country = ({filtered}) => {
-  const l = filtered.length
-  if (l > 10) {
-    return <p>Too many matches, specify another filter</p>
-  } else if (l > 1 && l <= 10) {
-    return <div>{filtered.map(c => <CountryName key={c.name} name={c.name}/>)}</div> 
-  } else if (l === 1) {
-    console.log(filtered[0])
-    return <OneCountry country={filtered[0]}/>
-  } else return '' 
-  {/* empty filter */}
-}
-const OneCountry = ({country}) => { 
-  return (
-    <div>
-      <h1>{country.name}</h1>
-      <p>capital {country.capital}</p>
-      <h2>languages</h2>
-      <ul>
-        {country.languages.map((lang) => <li key={lang.name}>{lang.name}</li>)}
-      </ul>
-      <img src={country.flag} height="100" />
-    </div>
-)}
-
-const CountryName = ({name}) => <p>{name}</p>
-
+import Country from './components/Country'
 
 const App = () => {
   const [ countries, setCountries ] = useState([])
@@ -48,7 +21,7 @@ const App = () => {
   return (
     <div>
       <div>find countries<input value={newFilter} onChange={handleFilterChange}/></div>
-      <Country filtered={filtered}/>
+      <Country filtered={filtered} setNewFilter={setNewFilter}/>
     </div>
   )
 }
