@@ -1,0 +1,7 @@
+POST https://agile-fortress-80670.herokuapp.com/api/persons
+Content-Type: application/json
+
+{
+  "name": "asss",
+  "number": "32"
+}
